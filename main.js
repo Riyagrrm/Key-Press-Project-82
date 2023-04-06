@@ -1,6 +1,6 @@
 // Create a reference for the canvas
-canvas=document.getElementById("myCanvas")
-ctx=canvas.getContext("2d")
+canvas = document.getElementById("myCanvas")
+ctx = canvas.getContext("2d")
 img_width = 300;
 img_height = 100;
 
@@ -23,49 +23,53 @@ function uploadimg() {
 //Write a code to grab the key-pressed event
 window.addEventListener("keydown", my_keydown)
 
-function my_keydown(e)
-{
+function my_keydown(e) {
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
-	
-		if((keyPressed >=97 && keyPressed<=122)|| (keyPressed >=65 && keyPressed<=90))
-		//write a code to check the type of key pressed
-		{
-			alphabetkey()
-			document.getElementById("d1").innerHTML="You Pressed An Alphabet Key"
-			console.log("alphabet key")
-		}
-	else
+
+	if ((keyPressed >= 97 && keyPressed <= 122) || (keyPressed >= 65 && keyPressed <= 90))
+	//write a code to check the type of key pressed
 	{
+		alphabetkey()
+		document.getElementById("d1").innerHTML = "You Pressed An Alphabet Key"
+		console.log("alphabet key")
+	}
+	else if ((keyPressed >= 37 && keyPressed <= 40)) {
+		arrkey();
+		document.getElementById("d1").innerHTML = "You pressed an arrow key"
+	}
+	else if ((keyPressed >= 48 && keyPressed <= 57)) {
+		numkey();
+		document.getElementById("d1").innerHTML = "You pressed a number key"
+	}
+	else if ((keyPressed ==17 || keyPressed == 18 || keyPressed == 27)) {
+		specialkey();
+		document.getElementById("d1").innerHTML = "You pressed a special key"
+	}
+	else {
 		otherkey();
-		document.getElementById("d1").innerHTML="You pressed symbol or other key";
+		document.getElementById("d1").innerHTML = "You pressed symbol or other key"
 	}
 }
+	function alphabetkey() {
+		//upload respective image with the message. 
+		img_image = "Alpkey.png"
+		add()
+	}
+	function numkey() {
+		img_image = "numkey.png";
+		add();
+	}
+	function arrkey() {
+		img_image = "Arrkey.png";
+		add();
+	}
+	function specialkey() {
+		img_image = "spkey.png";
+		add();
+	}
+	function otherkey() {
+		img_image = "otherkey.png";
+		add();
+	}
 
-function alphabetkey()
-{
-	//upload respective image with the message. 
-	img_image="Alpkey.png"
-	add()
-}
-function numberkey()
-{
-	img_image="numkey.png";
-	add();
-}
-function arrowkey()
-{
-	img_image="Arrkey.png";
-	add();
-}
-function specialkey()
-{
-	img_image="spkey.png";
-	add();
-}
-function otherkey()
-{
-	img_image="otherkey.png";
-	add();
-}
-	
